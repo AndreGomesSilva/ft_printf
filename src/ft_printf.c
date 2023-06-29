@@ -6,7 +6,7 @@
 /*   By: angomes- <angomes-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 15:54:18 by angomes-          #+#    #+#             */
-/*   Updated: 2023/06/27 19:29:00 by angomes-         ###   ########.fr       */
+/*   Updated: 2023/06/29 10:54:42 by angomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,26 +63,10 @@ int	check_flag(char flag, va_list arg)
 		result = ft_print_number(va_arg(arg, int));
 	else if (flag == 'i')
 		result = ft_print_number(va_arg(arg, int));
+	else if (flag == 'u')
+		result = ft_print_unsigned_number(va_arg(arg, int));
 	return (result);
 }
-
-// int	sum(int amount, ...)
-// {
-// 	va_list	arg;
-// 	int		i;
-// 	int		sum;
-//
-// 	va_start(arg, amount);
-// 	i = 0;
-// 	sum = 0;
-// 	while (i < amount)
-// 	{
-// 		sum += va_arg(arg, int);
-// 		i++;
-// 	}
-// 	va_end(arg);
-// 	return (sum);
-// }
 
 // int	main(void)
 // {
@@ -92,9 +76,9 @@ int	check_flag(char flag, va_list arg)
 //
 // 	num = 23423525;
 // 	str = "world";
-// 	result = ft_printf(" NULL %s NULL ", NULL);
+// 	result = ft_printf("%u", -1);
 //   printf("\n%d\n", result);
-// 	result = printf(" NULL %s NULL ", NULL);
+// 	result = printf("%u", -1);
 //   printf("\n%d", result);
 //
 // 	return (0);

@@ -6,7 +6,7 @@
 /*   By: angomes- <angomes-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 16:09:06 by angomes-          #+#    #+#             */
-/*   Updated: 2023/06/27 19:34:40 by angomes-         ###   ########.fr       */
+/*   Updated: 2023/06/29 10:55:16 by angomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,24 @@ int	ft_print_string(char *str)
 	return (count);
 }
 
-int	ft_print_number(int n)
+int	ft_print_unsigned_number(long int number)
+{
+	long int	lim;
+	long int	result;
+
+	lim = 0;
+	result = 0;
+	if (number < 0)
+	{
+		lim = 4294967296 + (number);
+		result = ft_print_number(lim);
+	}
+	else
+		result = ft_print_number(number);
+	return (result);
+}
+
+int	ft_print_number(long int n)
 {
 	char		*s;
 	long int	len;

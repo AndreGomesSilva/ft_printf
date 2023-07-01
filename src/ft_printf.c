@@ -6,7 +6,7 @@
 /*   By: angomes- <angomes-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 15:54:18 by angomes-          #+#    #+#             */
-/*   Updated: 2023/07/01 19:46:23 by angomes-         ###   ########.fr       */
+/*   Updated: 2023/07/01 20:36:44 by angomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ int	find_flag(const char *str, va_list arg)
 		if (*str == '%')
 		{
 			str++;
+			while (*str <= 32)
+				str++;
 			count += check_flag(*str, arg);
 			str++;
 		}
@@ -96,18 +98,3 @@ int	ft_printf(const char *str, ...)
 	va_end(arg);
 	return (num);
 }
-
-// int	main(void)
-// {
-// 	char	*str;
-// 	int		num;
-// 	int		result;
-//
-// 	num = 15;
-// 	str = "world";
-// 	result = ft_printf(" %p", str);
-// 	printf("\n%d\n", result);
-// 	result = printf(" %p", str);
-// 	printf("\n%d", result);
-// 	return (0);
-// }

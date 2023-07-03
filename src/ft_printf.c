@@ -6,7 +6,7 @@
 /*   By: angomes- <angomes-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 15:54:18 by angomes-          #+#    #+#             */
-/*   Updated: 2023/07/01 20:36:44 by angomes-         ###   ########.fr       */
+/*   Updated: 2023/07/03 13:17:43 by angomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ int	check_flag(char flag, va_list arg)
 	else if (flag == 'u')
 		result = ft_print_unsigned_number(va_arg(arg, int));
 	else if (flag == 'x')
-		result = convert_hexad(va_arg(arg, unsigned int), result, 0);
+		result = hexadecimal_convert(va_arg(arg, unsigned int), result, 0);
 	else if (flag == 'X')
-		result = convert_hexad(va_arg(arg, unsigned int), result, 1);
+		result = hexadecimal_convert(va_arg(arg, unsigned int), result, 1);
 	else if (flag == 'p')
-		result += convert_hexad(va_arg(arg, unsigned long), result, 2);
+		result += hexadecimal_convert(va_arg(arg, unsigned long), result, 2);
 	else if (flag == '%')
 		result = ft_print_char('%');
 	return (result);
@@ -72,7 +72,7 @@ int	find_flag(const char *str, va_list arg)
 		if (*str == '%')
 		{
 			str++;
-			while (*str <= 32)
+			while (*str == ' ')
 				str++;
 			count += check_flag(*str, arg);
 			str++;
@@ -89,12 +89,12 @@ int	find_flag(const char *str, va_list arg)
 int	ft_printf(const char *str, ...)
 {
 	va_list	arg;
-	int		num;
+	int		result;
 
 	if (!str)
 		return (0);
 	va_start(arg, str);
-	num = find_flag(str, arg);
+	result = find_flag(str, arg);
 	va_end(arg);
-	return (num);
+	return (result);
 }

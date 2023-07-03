@@ -6,32 +6,32 @@
 /*   By: angomes- <angomes-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 16:09:06 by angomes-          #+#    #+#             */
-/*   Updated: 2023/07/01 20:36:46 by angomes-         ###   ########.fr       */
+/*   Updated: 2023/07/03 13:21:42 by angomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	convert_hexad(unsigned long number, int result, int check)
+int	hexadecimal_convert(unsigned long number, int result, int flag_type)
 {
 	int	remainder;
 
-	if (check == 2)
+	if (flag_type == 2)
 	{
 		if (!number)
 			return (ft_print_string("(nil)"));
 		else
 			result += ft_print_string("0x");
-		check = 0;
+		flag_type = 0;
 	}
 	if (number > 15)
-		result += convert_hexad(number / 16, 0, check);
+		result += hexadecimal_convert(number / 16, 0, flag_type);
 	remainder = number % 16;
 	if (remainder < 10)
 		result += ft_print_char('0' + remainder);
-	else if (check == 0)
+	else if (flag_type == 0)
 		result += ft_print_char('a' + remainder - 10);
-	else if (check == 1)
+	else if (flag_type == 1)
 		result += ft_print_char('A' + remainder - 10);
 	return (result);
 }
@@ -53,20 +53,20 @@ int	ft_print_unsigned_number(long int number)
 	return (result);
 }
 
-static long int	count_len_int(long int n)
+static long int	count_len_int(long int number)
 {
 	long int	len;
 
 	len = 0;
-	if (n < 0)
+	if (number < 0)
 	{
-		n = n * (-1);
+		number = number * (-1);
 		len++;
 	}
-	while (n > 9)
+	while (number > 9)
 	{
 		len++;
-		n /= 10;
+		number /= 10;
 	}
 	len++;
 	return (len);
@@ -74,29 +74,29 @@ static long int	count_len_int(long int n)
 
 int	ft_print_number(long int number)
 {
-	char		*s;
+	char		*str;
 	long int	len;
 	long int	i;
 
 	len = count_len_int(number);
 	i = 1;
-	s = (char *)malloc((len + 1) * sizeof(char));
-	if (s == NULL)
+	str = (char *)malloc((len + 1) * sizeof(char));
+	if (str == NULL)
 		ft_print_string(NULL);
 	if (number < 0)
 	{
-		*s = '-';
+		*str = '-';
 		number = number * (-1);
 	}
 	while (number > 9)
 	{
-		*(s + len - i) = (number % 10 + '0');
+		*(str + len - i) = (number % 10 + '0');
 		number /= 10;
 		i++;
 	}
-	*(s + len - i) = (number % 10 + '0');
-	*(s + len) = '\0';
-	ft_print_string(s);
-	free(s);
+	*(str + len - i) = (number % 10 + '0');
+	*(str + len) = '\0';
+	ft_print_string(str);
+	free(str);
 	return (len);
 }

@@ -6,7 +6,7 @@
 #    By: angomes- <angomes-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/26 19:05:24 by angomes-          #+#    #+#              #
-#    Updated: 2023/07/03 13:29:59 by angomes-         ###   ########.fr        #
+#    Updated: 2023/07/03 15:14:49 by angomes-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ RM = rm -f
 
 FILES =\
 	ft_printf \
-	ft_printf_utils \
+	ft_printf_utils_number \
+	ft_printf_utils_string \
 
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))

@@ -6,7 +6,7 @@
 #    By: angomes- <angomes-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/26 19:05:24 by angomes-          #+#    #+#              #
-#    Updated: 2023/07/03 15:14:49 by angomes-         ###   ########.fr        #
+#    Updated: 2023/07/03 17:07:03 by angomes-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar -rcs
 RM = rm -f
+INC = -I.
 
 FILES =\
 	ft_printf \
@@ -33,7 +34,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 
 .c.o: $(SRCS)
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) $(INC) -c -o $@ $<
 	$(AR) $(NAME) $@
 
 clean:

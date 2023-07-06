@@ -6,7 +6,7 @@
 /*   By: angomes- <angomes-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 15:54:18 by angomes-          #+#    #+#             */
-/*   Updated: 2023/07/03 15:08:58 by angomes-         ###   ########.fr       */
+/*   Updated: 2023/07/06 19:13:36 by angomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	ft_printf(const char *str, ...)
 	int		result;
 
 	if (!str)
-		return (0);
+		return (-1);
 	va_start(arg, str);
 	result = find_flag(str, arg);
 	va_end(arg);

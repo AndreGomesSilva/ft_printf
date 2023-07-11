@@ -1,6 +1,6 @@
 ---
 
-<div aling="center">
+<div align="center">
   
 ![ft_printfe.png](./img/ft_printfe.png)
 

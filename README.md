@@ -14,7 +14,7 @@ ft_printf is a project assigned to students at 42 school that involves implement
 
 The `printf` function takes a format string and a variable number of arguments. The format string contains placeholders, which are replaced by the values of the corresponding arguments. The placeholders are indicated by the `%` character, followed by a conversion specifier. The conversion specifier describes the type of the argument and the format in which it should be printed.
 
-ft_printf supports a wide range of conversion specifiers for different data types, such as integers, unsigned integers, characters, and strings.
+ft_printf supports a wide range of conversion specifiers for different data types, such as integers, unsigned integers, characters, pointers, hexadecimal and strings.
 
 This project is a challenging project that requires a good understanding of the C programming language, memory management, and string manipulation. It also requires a thorough knowledge of the printf function and its various features.
 
